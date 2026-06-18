@@ -1,0 +1,83 @@
+{% load static %}
+
+<!-- Brand Partner Logos Section -->
+<div class="brand-logos-section py-5 my-4 scroll-animate">
+    <div class="container text-center">
+        <span class="text-primary fw-bold text-uppercase tracking-wider fs-8">Partners</span>
+        <h5 class="fw-bold text-muted mt-1 mb-5 fs-7">Trusted by leading companies globally</h5>
+        
+        <!-- Owl Carousel for Infinite Slider -->
+        <div class="owl-carousel owl-theme" id="partners-carousel">
+            <div class="item">
+                <div class="brand-logo-item d-flex justify-content-center align-items-center">
+                    <i class="bi bi-apple fs-1"></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="brand-logo-item d-flex justify-content-center align-items-center">
+                    <i class="bi bi-meta fs-1"></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="brand-logo-item d-flex justify-content-center align-items-center">
+                    <i class="bi bi-paypal fs-1"></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="brand-logo-item d-flex justify-content-center align-items-center">
+                    <i class="bi bi-stripe fs-1"></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="brand-logo-item d-flex justify-content-center align-items-center">
+                    <i class="bi bi-nvidia fs-1"></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="brand-logo-item d-flex justify-content-center align-items-center">
+                    <i class="bi bi-android2 fs-1"></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="brand-logo-item d-flex justify-content-center align-items-center">
+                    <i class="bi bi-microsoft fs-1"></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="brand-logo-item d-flex justify-content-center align-items-center">
+                    <i class="bi bi-google fs-1"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Owl Carousel Partners Initialization -->
+<script>
+    $(document).ready(function(){
+        $("#partners-carousel").owlCarousel({
+            loop: true,
+            margin: 40,
+            nav: false,
+            dots: false,
+            autoplay: true,
+            autoplayTimeout:1000,
+            autoplaySpeed:500,
+            slideTransition: 'ease-in-out',
+            responsive: {
+                0: {
+                    items: 2
+                },
+                480: {
+                    items: 3
+                },
+                768: {
+                    items: 4
+                },
+                992: {
+                    items: 6
+                }
+            }
+        });
+    });
+</script>

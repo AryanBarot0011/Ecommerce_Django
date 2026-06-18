@@ -1,0 +1,105 @@
+{% load static %}
+
+<!-- Coupon Banners Section -->
+<div class="row g-4 my-5">
+    <!-- Banner 1: Electronics/Tech -->
+    <div class="col-12 col-md-6 scroll-animate">
+        <div class="card border-0 coupon-card coupon-tech text-white h-100 p-4 p-lg-5 position-relative overflow-hidden shadow">
+            <!-- Background Decorative Shapes -->
+            <div class="coupon-circle-decor position-absolute"></div>
+            
+            <div class="row align-items-center position-relative z-2">
+                <div class="col-12 col-sm-8">
+                    <span class="badge bg-white bg-opacity-25 text-white px-3 py-2 rounded-pill fw-bold mb-3 fs-8 border border-white border-opacity-25 backdrop-blur">
+                        <i class="bi bi-tag-fill me-1 text-warning"></i> TECH SPECIAL
+                    </span>
+                    <h3 class="fw-bold mb-2 display-7">Get 20% Off Headphones</h3>
+                    <p class="text-white text-opacity-80 mb-4 fs-7">Upgrade your listening experience with premium noise cancelling headphones.</p>
+                    
+                    <!-- Responsive Flex Wrapper -->
+                    <div class="d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center gap-3">
+                        <div class="coupon-code-box d-inline-flex align-items-center justify-content-center">
+                            <span class="fs-8 text-white text-opacity-70 me-2">CODE:</span>
+                            <span class="coupon-code fw-bold tracking-widest text-warning me-2" id="code_1">TECH20</span>
+                            <i class="bi bi-copy text-white text-opacity-75 btn-copy-icon" style="cursor: pointer;" title="Copy Code" id="copy_1"></i>
+                        </div>
+                        <a href="#" class="btn btn-light rounded-pill px-4 btn-coupon-action shadow-sm fw-semibold fs-7 text-primary text-center">Shop Now</a>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-end d-none d-sm-block">
+                    <i class="bi bi-headphones display-1 text-white text-opacity-20"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner 2: Fashion/Style -->
+    <div class="col-12 col-md-6 scroll-animate delay-1">
+        <div class="card border-0 coupon-card coupon-fashion text-white h-100 p-4 p-lg-5 position-relative overflow-hidden shadow">
+            <!-- Background Decorative Shapes -->
+            <div class="coupon-circle-decor position-absolute"></div>
+            
+            <div class="row align-items-center position-relative z-2">
+                <div class="col-12 col-sm-8">
+                    <span class="badge bg-white bg-opacity-25 text-white px-3 py-2 rounded-pill fw-bold mb-3 fs-8 border border-white border-opacity-25 backdrop-blur">
+                        <i class="bi bi-tag-fill me-1 text-warning"></i> SEASON CLEARANCE
+                    </span>
+                    <h3 class="fw-bold mb-2 display-7">Save 50% on Backpacks</h3>
+                    <p class="text-white text-opacity-80 mb-4 fs-7">Travel in style and comfort with our premium, water-resistant leather line.</p>
+                    
+                    <!-- Responsive Flex Wrapper -->
+                    <div class="d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center gap-3">
+                        <div class="coupon-code-box d-inline-flex align-items-center justify-content-center">
+                            <span class="fs-8 text-white text-opacity-70 me-2">CODE:</span>
+                            <span class="coupon-code fw-bold tracking-widest text-warning me-2" id="code_2">STYLE50</span>
+                            <i class="bi bi-copy text-white text-opacity-75 btn-copy-icon" style="cursor: pointer;" title="Copy Code" id="copy_2"></i>
+                        </div>
+                        <a href="#" class="btn btn-light rounded-pill px-4 btn-coupon-action shadow-sm fw-semibold fs-7 text-dark text-center">Shop now</a>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-end d-none d-sm-block">
+                    <i class="bi bi-bag-heart-fill display-1 text-white text-opacity-20"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="alert-container"
+     class="position-fixed bottom-0 rounded m-3 start-50 translate-middle-x bg-dark text-white d-flex gap-2 align-items-center justify-content-center"
+     style="z-index: 1050;width:max-content;padding:10px;">
+</div>
+
+<script>
+
+    let copy1 = document.querySelector('#copy_1')
+    let copy2 = document.querySelector('#copy_2')
+
+    let code1 = document.querySelector('#code_1').innerText
+    let code2 = document.querySelector('#code_2').innerText
+
+    console.log(code1)
+
+    copy1.addEventListener('click',function(e){
+        navigator.clipboard.writeText(code1)
+        showAlert(code1)
+    })
+
+    copy2.addEventListener('click',function(e){
+        navigator.clipboard.writeText(code2)
+        showAlert(code2)
+    })
+
+    //  d-flex gap-2 align-items-center justify-content-center
+
+    async function showAlert(code){
+        let alert = document.querySelector("#alert-container")
+        alert.classList.add("show");
+        alert.innerHTML = `<i class="fa-solid fa-circle-check text-white"></i>Successfully ${code} copied`
+
+        setTimeout(()=>{
+            alert.classList.remove("show")
+        },3000)
+    }
+
+</script>

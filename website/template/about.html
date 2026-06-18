@@ -1,0 +1,139 @@
+{% extends 'bash.html' %}
+
+{% load static %}
+
+{% block title %}About Us - FastEcom{% endblock %}
+
+{% block content %}
+<main class="flex-shrink-0 my-5">
+    <div class="container">
+        
+        <!-- About Hero Section -->
+        <div class="row align-items-center py-5 mb-5 bg-white rounded-4 shadow-sm border border-light-subtle px-4 px-md-5 scroll-animate">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill fw-semibold mb-3">Who We Are</span>
+                <h1 class="display-4 fw-bold text-dark mb-3">Redefining the Future of Online Shopping</h1>
+                <p class="lead text-muted mb-0">At FastEcom, we believe that premium quality products should be accessible, affordable, and delivered at lightning speed.</p>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="FastEcom Team" class="img-fluid rounded-4 shadow">
+            </div>
+        </div>
+
+        <!-- Our Story Section -->
+        <div class="row align-items-center py-5 mb-5">
+            <div class="col-md-6 order-2 order-md-1 text-center scroll-animate">
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80" alt="Our Store Story" class="img-fluid rounded-4 shadow-sm">
+            </div>
+            <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0 ps-md-5 scroll-animate delay-1">
+                <span class="text-primary fw-bold text-uppercase tracking-wider fs-7">Our Journey</span>
+                <h2 class="display-6 fw-bold text-dark mt-1 mb-3">How We Started</h2>
+                <p class="text-muted mb-3">
+                    FastEcom was founded in 2020 with a simple mission: to eliminate the friction from online retail. What started as a small team of passionate developers and curators has grown into a global marketplace serving thousands of satisfied customers daily.
+                </p>
+                <p class="text-muted mb-0">
+                    We continuously innovate our logistics networks and select our brand partners with extreme care. Whether it's high-tech consumer electronics or minimalist fashion items, we commit to absolute excellence.
+                </p>
+            </div>
+        </div>
+
+        <!-- Core Values Section -->
+        <div class="my-5 py-4 text-center">
+            <span class="text-primary fw-bold text-uppercase tracking-wider fs-7">What We Believe</span>
+            <h2 class="display-6 fw-bold text-dark mt-1 mb-5">Our Core Values</h2>
+            
+            <div class="row g-4">
+                <!-- Value 1 -->
+                <div class="col-12 col-md-4 scroll-animate">
+                    <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white hover-lift">
+                        <div class="feature-icon-wrapper bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                            <i class="bi bi-heart-fill fs-3"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2 text-dark">Customer Obsessed</h5>
+                        <p class="text-muted mb-0 fs-7">Our customers are at the center of everything we do. We offer a 30-day hassle-free return and 24/7 dedicated support to keep you smiling.</p>
+                    </div>
+                </div>
+                
+                <!-- Value 2 -->
+                <div class="col-12 col-md-4 scroll-animate delay-1">
+                    <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white hover-lift">
+                        <div class="feature-icon-wrapper bg-success bg-opacity-10 text-success rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                            <i class="bi bi-patch-check-fill fs-3"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2 text-dark">Premium Quality</h5>
+                        <p class="text-muted mb-0 fs-7">We rigorously inspect every partner and vendor. If a product does not meet our high-quality benchmarks, it does not belong in our catalog.</p>
+                    </div>
+                </div>
+                
+                <!-- Value 3 -->
+                <div class="col-12 col-md-4 scroll-animate delay-2">
+                    <div class="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white hover-lift">
+                        <div class="feature-icon-wrapper bg-warning bg-opacity-10 text-warning rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                            <i class="bi bi-lightning-charge-fill fs-3"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2 text-dark">Lightning Speed</h5>
+                        <p class="text-muted mb-0 fs-7">Nobody likes waiting. Our distribution centers are optimized to pack, process, and ship your packages in record time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Meet the Team Section -->
+        <div class="my-5 py-4 text-center">
+            <span class="text-primary fw-bold text-uppercase tracking-wider fs-7">Founders</span>
+            <h2 class="display-6 fw-bold text-dark mt-1 mb-5">Meet Our Team</h2>
+            
+            <div class="row g-4 justify-content-center">
+                <!-- Team Member 1 -->
+                <div class="col-12 col-sm-6 col-lg-3 scroll-animate">
+                    <div class="card border-0 shadow-sm p-4 rounded-4 bg-white team-card">
+                        <div class="avatar-circle bg-primary bg-opacity-10 text-primary fw-bold rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px; font-size: 1.8rem;">
+                            AM
+                        </div>
+                        <h5 class="fw-bold mb-1 text-dark">Alex Mercer</h5>
+                        <small class="text-primary fw-bold text-uppercase tracking-wider fs-8 mb-3 d-block">CEO & Founder</small>
+                        <p class="text-muted fs-8 mb-4">A retail veteran with 12+ years of scaling ecommerce platforms.</p>
+                        <div class="d-flex justify-content-center gap-2">
+                            <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle social-icon"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle social-icon"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="col-12 col-sm-6 col-lg-3 scroll-animate delay-1">
+                    <div class="card border-0 shadow-sm p-4 rounded-4 bg-white team-card">
+                        <div class="avatar-circle bg-success bg-opacity-10 text-success fw-bold rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px; font-size: 1.8rem;">
+                            LH
+                        </div>
+                        <h5 class="fw-bold mb-1 text-dark">Laura Hayes</h5>
+                        <small class="text-success fw-bold text-uppercase tracking-wider fs-8 mb-3 d-block">Head of Design</small>
+                        <p class="text-muted fs-8 mb-4">Passionate about clean layouts, minimalist branding, and visual flow.</p>
+                        <div class="d-flex justify-content-center gap-2">
+                            <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle social-icon"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle social-icon"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="col-12 col-sm-6 col-lg-3 scroll-animate delay-2">
+                    <div class="card border-0 shadow-sm p-4 rounded-4 bg-white team-card">
+                        <div class="avatar-circle bg-purple bg-opacity-10 text-purple fw-bold rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px; font-size: 1.8rem;">
+                            SK
+                        </div>
+                        <h5 class="fw-bold mb-1 text-dark">Sanjay K.</h5>
+                        <small class="text-purple fw-bold text-uppercase tracking-wider fs-8 mb-3 d-block">CTO & Logistics</small>
+                        <p class="text-muted fs-8 mb-4">Mastermind behind our distributed databases and warehouse pipelines.</p>
+                        <div class="d-flex justify-content-center gap-2">
+                            <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle social-icon"><i class="bi bi-github"></i></a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle social-icon"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+{% endblock %}
