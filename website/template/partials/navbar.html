@@ -38,10 +38,10 @@
                     <!-- Navbar Links -->
                     <ul class="navbar-nav mb-4 mb-lg-0 ms-lg-4 gap-1 order-2 order-lg-1 me-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link active navigation-link" aria-current="page" href="/">Home</a>
+                            <a class="nav-link {% if request.path == '/' %}active{% endif %} navigation-link" aria-current="page" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link navigation-link" href="#">About</a>
+                            <a class="nav-link {% if request.path == '/about/' %}active{% endif %} navigation-link" href="{% url 'about' %}">About</a>
                         </li>
                         <!-- Category Dropdown -->
                         <li class="nav-item dropdown">
@@ -58,7 +58,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link navigation-link" href="#">Contact</a>
+                            <a class="nav-link {% if request.path == '/contact/' %}active{% endif %} navigation-link" href="{% url 'contact' %}">Contact</a>
                         </li>
                     </ul>
                     

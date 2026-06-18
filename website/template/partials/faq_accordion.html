@@ -1,0 +1,74 @@
+{% load static %}
+
+<!-- FAQ Accordion Section -->
+<div class="faq-accordion-section my-5 py-4 scroll-animate">
+    <div class="d-flex flex-column align-items-center text-center mb-5">
+        <span class="text-primary fw-bold text-uppercase tracking-wider fs-7">Got Questions?</span>
+        <h2 class="display-6 fw-bold text-dark mt-1 mb-2">Frequently Asked Questions</h2>
+        <p class="text-muted mb-0">Quick answers to the most common queries about shopping at FastEcom.</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+            <div class="accordion accordion-custom shadow-sm rounded-4 overflow-hidden border border-light-subtle" id="faqAccordion">
+                
+                <!-- FAQ Item 1 -->
+                <div class="accordion-item border-0 border-bottom border-light-subtle">
+                    <h2 class="accordion-header" id="faqHeadingOne">
+                        <button class="accordion-button fw-bold text-dark py-4" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne" aria-expanded="true" aria-controls="faqCollapseOne">
+                            <i class="bi bi-question-circle text-primary me-2"></i> What are your shipping times?
+                        </button>
+                    </h2>
+                    <div id="faqCollapseOne" class="accordion-collapse collapse show" aria-labelledby="faqHeadingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted py-4 px-4 bg-white fs-7">
+                            We process and ship all orders within 1-2 business days. Express shipping takes 2-4 business days, while standard shipping takes 5-7 business days. Free shipping is automatically applied on orders over $50.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="accordion-item border-0 border-bottom border-light-subtle">
+                    <h2 class="accordion-header" id="faqHeadingTwo">
+                        <button class="accordion-button collapsed fw-bold text-dark py-4" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+                            <i class="bi bi-arrow-left-right text-primary me-2"></i> What is your return policy?
+                        </button>
+                    </h2>
+                    <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted py-4 px-4 bg-white fs-7">
+                            We offer a 30-day hassle-free return policy. If you're not completely satisfied with your purchase, you can return it for a full refund or exchange. Items must be returned in their original packaging and unused condition.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="accordion-item border-0 border-bottom border-light-subtle">
+                    <h2 class="accordion-header" id="faqHeadingThree">
+                        <button class="accordion-button collapsed fw-bold text-dark py-4" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
+                            <i class="bi bi-shield-check text-primary me-2"></i> Are my payment details secure?
+                        </button>
+                    </h2>
+                    <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted py-4 px-4 bg-white fs-7">
+                            Absolutely. We use industry-standard SSL encryption and partner with secure, PCI-compliant payment gateways like Stripe and PayPal to ensure your transaction details are 100% protected and never stored on our servers.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="accordion-item border-0">
+                    <h2 class="accordion-header" id="faqHeadingFour">
+                        <button class="accordion-button collapsed fw-bold text-dark py-4" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFour" aria-expanded="false" aria-controls="faqCollapseFour">
+                            <i class="bi bi-geo-alt text-primary me-2"></i> How do I track my order?
+                        </button>
+                    </h2>
+                    <div id="faqCollapseFour" class="accordion-collapse collapse" aria-labelledby="faqHeadingFour" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted py-4 px-4 bg-white fs-7">
+                            Once your order has been shipped, we will automatically send you an email notification containing your shipping courier details and a tracking number so you can trace your package in real-time.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
