@@ -1,0 +1,58 @@
+ <!-- Offcanvas Cart -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold" id="offcanvasCartLabel">
+                <i class="bi bi-bag-check-fill text-primary me-2"></i>Your Cart (3 items)
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column justify-content-between">
+            <div class="cart-items-container">
+                <!-- Cart Item 1 -->
+                <div class="d-flex align-items-center mb-3 pb-3 border-bottom">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=80&q=80" alt="Product Image" class="img-fluid rounded me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                    <div class="flex-grow-1">
+                        <h6 class="mb-0 fw-semibold text-truncate" style="max-width: 150px;">Nike Air Max</h6>
+                        <small class="text-muted">Qty: 1</small>
+                    </div>
+                    <div class="text-end">
+                        <span class="fw-bold text-primary">$120.00</span>
+                        <button class="btn btn-sm text-danger d-block ms-auto mt-1 border-0 bg-transparent p-0"><i class="bi bi-trash"></i></button>
+                    </div>
+                </div>
+                <!-- Cart Item 2 -->
+                <div class="d-flex align-items-center mb-3 pb-3 border-bottom">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=80&q=80" alt="Product Image" class="img-fluid rounded me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                    <div class="flex-grow-1">
+                        <h6 class="mb-0 fw-semibold text-truncate" style="max-width: 150px;">Minimalist Watch</h6>
+                        <small class="text-muted">Qty: 2</small>
+                    </div>
+                    <div class="text-end">
+                        <span class="fw-bold text-primary">$85.00</span>
+                        <button class="btn btn-sm text-danger d-block ms-auto mt-1 border-0 bg-transparent p-0"><i class="bi bi-trash"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cart Summary & Actions -->
+            <div class="cart-summary mt-auto pt-3 border-top">
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted">Subtotal:</span>
+                    <span class="fw-semibold">$290.00</span>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <span class="text-muted">Shipping:</span>
+                    <span class="text-success fw-semibold">Free</span>
+                </div>
+                <hr class="my-3">
+                <div class="d-flex justify-content-between mb-4">
+                    <span class="fw-bold fs-5">Total:</span>
+                    <span class="fw-bold fs-5 text-primary">$290.00</span>
+                </div>
+                <div class="d-grid gap-2">
+                    <a href="#" class="btn btn-primary rounded-pill py-2 fw-semibold shadow-sm">Proceed to Checkout</a>
+                    <button type="button" class="btn btn-outline-secondary rounded-pill py-2" data-bs-dismiss="offcanvas">Continue Shopping</button>
+                </div>
+            </div>
+        </div>
+    </div>

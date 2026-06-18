@@ -1,0 +1,32 @@
+{% extends 'bash.html' %}
+
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %} 
+
+ <!-- Main Content Area -->
+    <main class="flex-shrink-0 my-5">
+        <div class="container">
+            
+            <!-- Default placeholder content if child template doesn't provide it -->
+            <div class="row align-items-center py-5">
+                <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+                    <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill fw-semibold mb-3">Summer Sale 50% Off</span>
+                    <h1 class="display-3 fw-bold text-dark mb-3 lh-sm">Your One-Stop Shop for Everything!</h1>
+                    <p class="lead text-muted mb-4">Discover the best deals on Electronics, Fashion, Home Decor, and more. Enjoy free shipping on orders over $50.</p>
+                    <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
+                        <a href="#" class="btn btn-primary btn-lg px-4 rounded-pill shadow-sm">Shop Now <i class="bi bi-arrow-right ms-2"></i></a>
+                        <a href="#" class="btn btn-outline-secondary btn-lg px-4 rounded-pill">Explore Categories</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Ecommerce Shopping" class="img-fluid rounded-4 shadow">
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+{% endblock %}
