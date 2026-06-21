@@ -1,0 +1,755 @@
+{% extends 'bash.html' %}
+
+{% load static %}
+
+{% block title %}Active Noise Cancelling Wireless Headphones - FastEcom{% endblock %}
+
+{% block content %}
+<!-- Custom Premium Product Details Styles -->
+<style>
+    .product-details-container {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    
+    /* Breadcrumb styling */
+    .breadcrumb-item a {
+        color: #6c757d;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .breadcrumb-item a:hover {
+        color: var(--bg-header);
+    }
+    
+    /* Gallery Styling */
+    .gallery-main {
+        border-radius: 1.25rem;
+        overflow: hidden;
+        background-color: #f8f9fa;
+        height: 480px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+    }
+    .gallery-main img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    .gallery-main:hover img {
+        transform: scale(1.03);
+    }
+    
+    .thumbnail-img-btn {
+        width: 80px;
+        height: 80px;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        border: 2px solid transparent;
+        background-color: #f8f9fa;
+        padding: 0;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    }
+    
+    .thumbnail-img-btn img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .thumbnail-img-btn.active {
+        border-color: var(--bg-header);
+        box-shadow: 0 4px 12px rgba(13, 110, 253, 0.15);
+        transform: translateY(-2px);
+    }
+    
+    .thumbnail-img-btn:hover:not(.active) {
+        border-color: #dee2e6;
+        transform: translateY(-1px);
+    }
+    
+    /* Option Selectors */
+    .color-swatch {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 2px solid #ffffff;
+        outline: 1px solid #dee2e6;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        position: relative;
+    }
+    
+    .color-swatch.active {
+        outline: 2px solid var(--bg-header);
+        transform: scale(1.1);
+    }
+    
+    .size-option-btn {
+        border: 1px solid #dee2e6;
+        background-color: #ffffff;
+        color: #212529;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        border-radius: 0.5rem;
+    }
+    
+    .size-option-btn:hover {
+        border-color: #9ec5fe;
+        background-color: rgba(13, 110, 253, 0.02);
+    }
+    
+    .size-option-btn.active {
+        border-color: var(--bg-header);
+        background-color: rgba(13, 110, 253, 0.08);
+        color: var(--bg-header-dark);
+        font-weight: 600;
+    }
+    
+    /* Quantity Input */
+    .quantity-control {
+        max-width: 140px;
+        border: 1px solid #dee2e6;
+        border-radius: 2rem;
+        overflow: hidden;
+        background-color: #ffffff;
+    }
+    
+    .quantity-btn {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: none;
+        color: #6c757d;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    
+    .quantity-btn:hover {
+        background-color: #f8f9fa;
+        color: #000;
+    }
+    
+    .quantity-input {
+        width: 50px;
+        border: none;
+        text-align: center;
+        font-weight: 600;
+        color: #212529;
+    }
+    
+    .quantity-input:focus {
+        outline: none;
+    }
+    
+    /* Tabs Customization */
+    .custom-tabs .nav-link {
+        color: #6c757d;
+        border: none;
+        border-bottom: 2px solid transparent;
+        font-weight: 600;
+        padding: 1rem 1.5rem;
+        transition: all 0.2s ease;
+    }
+    
+    .custom-tabs .nav-link:hover {
+        color: var(--bg-header);
+        border-bottom-color: #dee2e6;
+    }
+    
+    .custom-tabs .nav-link.active {
+        color: var(--bg-header);
+        border-bottom-color: var(--bg-header);
+        background-color: transparent;
+    }
+    
+    /* Specs Table */
+    .specs-table th {
+        font-weight: 600;
+        color: #495057;
+        width: 35%;
+        background-color: #f8f9fa;
+    }
+    .specs-table td {
+        color: #212529;
+    }
+    
+    /* Review Stars Distribution */
+    .rating-bar {
+        height: 8px;
+        border-radius: 4px;
+        background-color: #e9ecef;
+        overflow: hidden;
+    }
+    
+    .rating-bar-fill {
+        height: 100%;
+        border-radius: 4px;
+        background-color: #ffc107;
+    }
+    
+    /* Heart Wishlist Button */
+    .btn-wishlist {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #dee2e6;
+        background-color: #ffffff;
+        color: #6c757d;
+        transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .btn-wishlist:hover {
+        background-color: #fff0f2;
+        border-color: #ffc2d1;
+        color: #ff4d6d;
+        transform: scale(1.08);
+    }
+    
+    .btn-wishlist.active {
+        background-color: #ff4d6d;
+        border-color: #ff4d6d;
+        color: #ffffff;
+        box-shadow: 0 4px 12px rgba(255, 77, 109, 0.3);
+    }
+    
+    /* Quick Specs list */
+    .quick-spec-badge {
+        background-color: #f8f9fa;
+        border-radius: 0.5rem;
+        padding: 0.6rem 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #495057;
+    }
+    .quick-spec-badge i {
+        color: var(--bg-header);
+        font-size: 1.05rem;
+    }
+</style>
+
+<main class="flex-shrink-0 my-4 product-details-container">
+    <div class="container">
+        
+        <!-- Breadcrumbs -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/"><i class="bi bi-house-door-fill me-1"></i>Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'product_list' %}">Products</a></li>
+                <li class="breadcrumb-item"><a href="#">Electronics</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Headphones</li>
+            </ol>
+        </nav>
+        
+        <!-- Main Product Card & Details Section -->
+        <div class="card border-0 shadow-sm rounded-4 p-3 p-md-4 bg-white mb-5">
+            <div class="row g-4 g-lg-5">
+                
+                <!-- Product Gallery Left Column -->
+                <div class="col-lg-6">
+                    <!-- Main Gallery Window -->
+                    <div class="gallery-main mb-3">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80" id="mainProductImg" class="img-fluid" alt="Active Noise Cancelling Headphones Main Angle">
+                    </div>
+                    
+                    <!-- Thumbnails row -->
+                    <div class="d-flex gap-2 justify-content-center">
+                        <button class="thumbnail-img-btn active" onclick="switchMainImage('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80', this)">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=150&q=80" alt="Angle 1">
+                        </button>
+                        <button class="thumbnail-img-btn" onclick="switchMainImage('https://images.unsplash.com/photo-1487215078519-e21cc028cb29?auto=format&fit=crop&w=800&q=80', this)">
+                            <img src="https://images.unsplash.com/photo-1487215078519-e21cc028cb29?auto=format&fit=crop&w=150&q=80" alt="Angle 2">
+                        </button>
+                        <button class="thumbnail-img-btn" onclick="switchMainImage('https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=800&q=80', this)">
+                            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=150&q=80" alt="Angle 3">
+                        </button>
+                        <button class="thumbnail-img-btn" onclick="switchMainImage('https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=800&q=80', this)">
+                            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=150&q=80" alt="Angle 4">
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product Information Right Column -->
+                <div class="col-lg-6 d-flex flex-column justify-content-between">
+                    <div>
+                        <!-- Category Badge and Stock indicator -->
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="text-uppercase text-primary fw-bold tracking-wider fs-7">SoundWave &bull; Electronics</span>
+                            <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3 py-2 fw-semibold fs-8">
+                                <i class="bi bi-check-circle-fill me-1"></i>In Stock
+                            </span>
+                        </div>
+                        
+                        <!-- Title -->
+                        <h1 class="h2 fw-bold text-dark mb-2">Active Noise Cancelling Wireless Headphones</h1>
+                        
+                        <!-- Star Rating System -->
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="text-warning me-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <span class="fw-bold text-dark me-2">4.9</span>
+                            <span class="text-muted fs-7">(1,248 Customer Reviews)</span>
+                        </div>
+                        
+                        <!-- Pricing layout -->
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <h2 class="display-6 fw-bold text-primary mb-0">$199.99</h2>
+                            <span class="text-decoration-line-through text-muted fs-4">$249.99</span>
+                            <span class="badge badge-sale rounded-pill px-3 py-2 fw-semibold fs-8">Save 20%</span>
+                        </div>
+                        
+                        <!-- Short Description -->
+                        <p class="text-muted mb-4 leading-relaxed">
+                            Experience audio perfection with our industry-leading active noise cancelling technology. Designed for ultimate comfort, long-lasting battery life, and crystal-clear sound quality. Blocks out external distraction so you can lose yourself in the music.
+                        </p>
+                        
+                        <!-- Quick Spec Highlights -->
+                        <div class="d-flex flex-wrap gap-2 mb-4">
+                            <div class="quick-spec-badge">
+                                <i class="bi bi-battery-charging"></i>
+                                <span>40h Battery Life</span>
+                            </div>
+                            <div class="quick-spec-badge">
+                                <i class="bi bi-bluetooth"></i>
+                                <span>Bluetooth 5.2</span>
+                            </div>
+                            <div class="quick-spec-badge">
+                                <i class="bi bi-volume-up-fill"></i>
+                                <span>Active Noise Cancelling</span>
+                            </div>
+                        </div>
+                        
+                        <hr class="border-light-subtle my-4">
+                        
+                        <!-- Interactive Color Swatches -->
+                        <div class="mb-3">
+                            <span class="fw-semibold text-dark d-block mb-2 fs-7 text-uppercase">Color: <span id="selectedColorName" class="text-muted fw-normal text-capitalize">Matte Black</span></span>
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="color-swatch active bg-dark" onclick="selectColor(this, 'Matte Black')" title="Matte Black"></div>
+                                <div class="color-swatch bg-secondary bg-opacity-25" style="background-color: #f5f5dc !important;" onclick="selectColor(this, 'Cream White')" title="Cream White"></div>
+                                <div class="color-swatch bg-primary" style="background-color: #1a365d !important;" onclick="selectColor(this, 'Navy Blue')" title="Navy Blue"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Interactive Capacity / Size Selector -->
+                        <div class="mb-4">
+                            <span class="fw-semibold text-dark d-block mb-2 fs-7 text-uppercase">Edition:</span>
+                            <div class="d-flex gap-2">
+                                <button class="btn size-option-btn active px-4 py-2" onclick="selectSize(this)">Standard Edition</button>
+                                <button class="btn size-option-btn px-4 py-2" onclick="selectSize(this)">Pro Audio Elite</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Quantity Selector -->
+                        <div class="mb-4">
+                            <span class="fw-semibold text-dark d-block mb-2 fs-7 text-uppercase">Quantity:</span>
+                            <div class="quantity-control d-flex align-items-center">
+                                <button class="quantity-btn" onclick="updateQty(-1)"><i class="bi bi-dash"></i></button>
+                                <input type="text" class="quantity-input" id="qtyInput" value="1" readonly>
+                                <button class="quantity-btn" onclick="updateQty(1)"><i class="bi bi-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Call to Actions -->
+                    <div class="d-flex gap-3 align-items-center mt-3 pt-3 border-top border-light-subtle">
+                        <button class="btn btn-primary btn-lg rounded-pill px-4 py-3 fw-bold flex-grow-1 shadow-sm btn-add-cart d-flex align-items-center justify-content-center gap-2">
+                            <i class="bi bi-cart-plus-fill fs-5"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-dark btn-lg rounded-pill px-4 py-3 fw-bold flex-grow-1 shadow-sm">
+                            Buy Now
+                        </button>
+                        <button class="btn-wishlist shadow-sm" onclick="toggleWishlist(this)" title="Add to Wishlist">
+                            <i class="bi bi-heart-fill fs-5"></i>
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tabbed Information Details Section -->
+        <div class="row mb-5">
+            <div class="col-100">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
+                    
+                    <!-- Tab list navigation -->
+                    <div class="border-bottom bg-light">
+                        <nav class="nav custom-tabs" id="productTabs" role="tablist">
+                            <button class="nav-link active" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc-pane" type="button" role="tab" aria-controls="desc-pane" aria-selected="true">Description</button>
+                            <button class="nav-link" id="specs-tab" data-bs-toggle="tab" data-bs-target="#specs-pane" type="button" role="tab" aria-controls="specs-pane" aria-selected="false">Specifications</button>
+                            <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews-pane" type="button" role="tab" aria-controls="reviews-pane" aria-selected="false">Reviews (1,248)</button>
+                        </nav>
+                    </div>
+                    
+                    <!-- Tab content panes -->
+                    <div class="card-body p-4 p-md-5">
+                        <div class="tab-content" id="productTabsContent">
+                            
+                            <!-- Description Tab -->
+                            <div class="tab-pane fade show active" id="desc-pane" role="tabpanel" aria-labelledby="desc-tab" tabindex="0">
+                                <h4 class="fw-bold text-dark mb-4">True Audio Immersion</h4>
+                                <p class="text-muted leading-relaxed mb-4">
+                                    Our SoundWave Pro Wireless Headphones utilize next-generation dual-sensor active noise canceling technology to constantly monitor and suppress environment ambient sounds. The hybrid feed-forward and feed-back mic system measures sound patterns both outside and inside your ear, creating a pristine canvas for your music.
+                                </p>
+                                <div class="row g-4 mt-2">
+                                    <div class="col-md-6">
+                                        <div class="d-flex gap-3 align-items-start mb-3">
+                                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; min-width: 40px;">
+                                                <i class="bi bi-music-note-beamed fs-5"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="fw-bold text-dark mb-1">Hi-Res Audio Standards</h6>
+                                                <p class="text-muted fs-7 mb-0">Custom 40mm dynamic drivers deliver deep bass, authentic mid-range frequencies, and sparkling highs.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex gap-3 align-items-start mb-3">
+                                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; min-width: 40px;">
+                                                <i class="bi bi-cpu fs-5"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="fw-bold text-dark mb-1">Advanced Smart Sensor</h6>
+                                                <p class="text-muted fs-7 mb-0">Pauses your audio automatically when you remove your headphones, and resumes instantly when put back on.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex gap-3 align-items-start mb-3">
+                                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; min-width: 40px;">
+                                                <i class="bi bi-chat-left-text fs-5"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="fw-bold text-dark mb-1">Crystal Clear Calls</h6>
+                                                <p class="text-muted fs-7 mb-0">Five beamforming microphones with smart environmental noise cancellation keep your voice crystal clear during calls.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex gap-3 align-items-start mb-3">
+                                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; min-width: 40px;">
+                                                <i class="bi bi-feather fs-5"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="fw-bold text-dark mb-1">Featherlight Ergonomics</h6>
+                                                <p class="text-muted fs-7 mb-0">Pressure-relieving memory foam earpads evenly distribute pressure, making them comfortable for all-day wear.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Specifications Tab -->
+                            <div class="tab-pane fade" id="specs-pane" role="tabpanel" aria-labelledby="specs-tab" tabindex="0">
+                                <h4 class="fw-bold text-dark mb-4">Technical Details</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered specs-table rounded-3 overflow-hidden">
+                                        <tbody>
+                                            <tr>
+                                                <th class="p-3">Brand & Model</th>
+                                                <td class="p-3">SoundWave Pro Max v2</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="p-3">Driver Size</th>
+                                                <td class="p-3">40 mm Dynamic Dome Type</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="p-3">Frequency Response</th>
+                                                <td class="p-3">4Hz - 40,000Hz (Hi-Res Audio Wireless)</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="p-3">Battery Capacity</th>
+                                                <td class="p-3">1200mAh Lithium-Polymer</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="p-3">Battery Life</th>
+                                                <td class="p-3">Up to 40 hours with ANC On / 50 hours with ANC Off</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="p-3">Charging Method</th>
+                                                <td class="p-3">USB-C Fast Charge (10 mins = 5h Playback)</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="p-3">Connectivity</th>
+                                                <td class="p-3">Bluetooth 5.2 / SBC, AAC, LDAC audio formats</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="p-3">Weight</th>
+                                                <td class="p-3">254 grams</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="p-3">Inside the Box</th>
+                                                <td class="p-3">Carrying Case, USB-C Cable (0.2m), Audio jack cable (1.2m), User guide</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            
+                            <!-- Reviews Tab -->
+                            <div class="tab-pane fade" id="reviews-pane" role="tabpanel" aria-labelledby="reviews-tab" tabindex="0">
+                                <div class="row g-4 g-lg-5">
+                                    
+                                    <!-- Overall Score left column -->
+                                    <div class="col-md-4">
+                                        <div class="card bg-light border-0 rounded-4 p-4 text-center">
+                                            <h1 class="display-3 fw-bold text-dark mb-1">4.9</h1>
+                                            <div class="text-warning mb-2 fs-5">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                            <p class="text-muted fs-7 mb-4">Based on 1,248 verified user ratings</p>
+                                            
+                                            <!-- Stars Distribution list -->
+                                            <div class="d-flex flex-column gap-2 text-start fs-8">
+                                                <!-- 5 star row -->
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <span style="width: 45px;">5 Star</span>
+                                                    <div class="flex-grow-1 rating-bar">
+                                                        <div class="rating-bar-fill" style="width: 90%;"></div>
+                                                    </div>
+                                                    <span style="width: 30px;" class="text-end">90%</span>
+                                                </div>
+                                                <!-- 4 star row -->
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <span style="width: 45px;">4 Star</span>
+                                                    <div class="flex-grow-1 rating-bar">
+                                                        <div class="rating-bar-fill" style="width: 8%;"></div>
+                                                    </div>
+                                                    <span style="width: 30px;" class="text-end">8%</span>
+                                                </div>
+                                                <!-- 3 star row -->
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <span style="width: 45px;">3 Star</span>
+                                                    <div class="flex-grow-1 rating-bar">
+                                                        <div class="rating-bar-fill" style="width: 1%;"></div>
+                                                    </div>
+                                                    <span style="width: 30px;" class="text-end">1%</span>
+                                                </div>
+                                                <!-- 2 star row -->
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <span style="width: 45px;">2 Star</span>
+                                                    <div class="flex-grow-1 rating-bar">
+                                                        <div class="rating-bar-fill" style="width: 1%;"></div>
+                                                    </div>
+                                                    <span style="width: 30px;" class="text-end">1%</span>
+                                                </div>
+                                                <!-- 1 star row -->
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <span style="width: 45px;">1 Star</span>
+                                                    <div class="flex-grow-1 rating-bar">
+                                                        <div class="rating-bar-fill" style="width: 0%;"></div>
+                                                    </div>
+                                                    <span style="width: 30px;" class="text-end">0%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Reviews list right column -->
+                                    <div class="col-md-8">
+                                        <h5 class="fw-bold text-dark mb-4">Top Customer Reviews</h5>
+                                        
+                                        <!-- Review 1 -->
+                                        <div class="d-flex gap-3 mb-4 pb-4 border-bottom border-light-subtle">
+                                            <div class="avatar-circle bg-primary bg-opacity-10 text-primary d-flex align-items-center justify-content-center">JS</div>
+                                            <div class="flex-grow-1">
+                                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                                    <h6 class="fw-bold text-dark mb-0">Jonathan Stark</h6>
+                                                    <span class="text-muted fs-8">2 days ago</span>
+                                                </div>
+                                                <div class="text-warning mb-2 fs-8">
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                </div>
+                                                <p class="text-muted mb-0 fs-7 leading-relaxed">
+                                                    The ANC is spectacular. Blocks out train noise and office chatter with ease. Soundstage feels wide, and battery lasts forever! Very pleased with this purchase.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Review 2 -->
+                                        <div class="d-flex gap-3 mb-4 pb-4 border-bottom border-light-subtle">
+                                            <div class="avatar-circle bg-success bg-opacity-10 text-success d-flex align-items-center justify-content-center">EM</div>
+                                            <div class="flex-grow-1">
+                                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                                    <h6 class="fw-bold text-dark mb-0">Emily Miller</h6>
+                                                    <span class="text-muted fs-8">1 week ago</span>
+                                                </div>
+                                                <div class="text-warning mb-2 fs-8">
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                </div>
+                                                <p class="text-muted mb-0 fs-7 leading-relaxed">
+                                                    Super soft padding, I can wear these all day during long work hours without feeling any clamping force. Sound profile is rich and detailed.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <!-- Related Products Section -->
+        <div class="my-5">
+            <div class="d-flex align-items-center gap-2 mb-4">
+                <div class="bg-primary text-white rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                    <i class="bi bi-grid-fill fs-7"></i>
+                </div>
+                <h3 class="fw-bold text-dark mb-0 h4">You May Also Like</h3>
+            </div>
+            
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                
+                <!-- Related item 1 -->
+                <div class="col">
+                    <div class="card h-100 border-0 product-card shadow-sm overflow-hidden p-0">
+                        <div class="product-img-container bg-light d-flex align-items-center justify-content-center">
+                            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=500&q=80" class="product-img img-fluid" alt="Backpack">
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <span class="product-category text-uppercase text-muted fw-bold mb-1 fs-8">Fashion</span>
+                            <h6 class="fw-bold text-dark mb-2">Minimalist Premium Leather Backpack</h6>
+                            <div class="mt-auto d-flex align-items-center justify-content-between pt-3 border-top border-light-subtle">
+                                <span class="current-price fw-bold text-dark">$120.00</span>
+                                <a href="{% url 'product_list' %}" class="btn btn-outline-primary btn-sm rounded-pill px-3">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Related item 2 -->
+                <div class="col">
+                    <div class="card h-100 border-0 product-card shadow-sm overflow-hidden p-0">
+                        <div class="product-img-container bg-light d-flex align-items-center justify-content-center">
+                            <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=500&q=80" class="product-img img-fluid" alt="Keyboard">
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <span class="product-category text-uppercase text-muted fw-bold mb-1 fs-8">Electronics</span>
+                            <h6 class="fw-bold text-dark mb-2">RGB Mechanical Gaming Keyboard</h6>
+                            <div class="mt-auto d-flex align-items-center justify-content-between pt-3 border-top border-light-subtle">
+                                <span class="current-price fw-bold text-dark">$89.90</span>
+                                <a href="{% url 'product_list' %}" class="btn btn-outline-primary btn-sm rounded-pill px-3">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Related item 3 -->
+                <div class="col d-sm-none d-md-block">
+                    <div class="card h-100 border-0 product-card shadow-sm overflow-hidden p-0">
+                        <div class="product-img-container bg-light d-flex align-items-center justify-content-center">
+                            <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=500&q=80" class="product-img img-fluid" alt="Bottle">
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <span class="product-category text-uppercase text-muted fw-bold mb-1 fs-8">Fitness</span>
+                            <h6 class="fw-bold text-dark mb-2">Insulated Stainless Steel Water Bottle</h6>
+                            <div class="mt-auto d-flex align-items-center justify-content-between pt-3 border-top border-light-subtle">
+                                <span class="current-price fw-bold text-dark">$34.99</span>
+                                <a href="{% url 'product_list' %}" class="btn btn-outline-primary btn-sm rounded-pill px-3">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</main>
+
+<!-- Interactive Product Controls JavaScript -->
+<script>
+    // 1. Switch Main Gallery Image
+    function switchMainImage(imgUrl, btnElement) {
+        document.getElementById('mainProductImg').src = imgUrl;
+        
+        // Remove active class from all thumbnail buttons
+        document.querySelectorAll('.thumbnail-img-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // Add active class to clicked button
+        btnElement.classList.add('active');
+    }
+
+    // 2. Select Color Swatch
+    function selectColor(element, colorName) {
+        document.querySelectorAll('.color-swatch').forEach(swatch => {
+            swatch.classList.remove('active');
+        });
+        element.classList.add('active');
+        document.getElementById('selectedColorName').innerText = colorName;
+    }
+
+    // 3. Select Size Option
+    function selectSize(element) {
+        document.querySelectorAll('.size-option-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        element.classList.add('active');
+    }
+
+    // 4. Update Quantity Selector
+    function updateQty(change) {
+        const qtyInput = document.getElementById('qtyInput');
+        let currentVal = parseInt(qtyInput.value);
+        if (isNaN(currentVal)) currentVal = 1;
+        
+        let newVal = currentVal + change;
+        if (newVal >= 1 && newVal <= 10) {
+            qtyInput.value = newVal;
+        }
+    }
+
+    // 5. Toggle Wishlist Heart Icon
+    function toggleWishlist(button) {
+        button.classList.toggle('active');
+        
+        // Visual indicator toast logic if desired
+        const isAdded = button.classList.contains('active');
+        const alertMsg = isAdded ? 'Added to your Wishlist!' : 'Removed from your Wishlist!';
+        
+        // If a Toast system exists or we just log it
+        console.log(alertMsg);
+    }
+</script>
+{% endblock %}
