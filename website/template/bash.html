@@ -31,15 +31,19 @@
 </head>
 <body class="d-flex flex-column min-vh-100 bg-light">
 
+    {% if not hide_header_footer %}
     {% include 'partials/navbar.html' %}
+    {% endif %}
 
     {% block content %}
 
     {% endblock %}
 
+    {% if not hide_header_footer %}
     {% include 'partials/cartoffcanvas.html' %}
 
     {% include 'partials/footer.html' %}
+    {% endif %}
   
 
     <script src="{% static 'JS/bootstrap.bundle.min.js' %}"></script>

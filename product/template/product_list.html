@@ -1,0 +1,12 @@
+{% extends 'bash.html' %}
+
+{% block title %}Products - FastEcom{% endblock %}
+
+{% block content %}
+<main class="flex-shrink-0 my-5">
+    <div class="container">
+        <!-- Display the product listing -->
+        {% include 'partials/product_cards.html' %}
+    </div>
+</main>
+{% endblock %}
